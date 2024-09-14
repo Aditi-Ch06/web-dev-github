@@ -1,0 +1,66 @@
+#background-img {
+  height: 1200px;
+  background-image: url("captain-america2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#detail-1 {
+  width: 700px;
+  color: white;
+  font-size: 25px;
+  /* background-color: rgba(254, 229, 252, 0.8);
+    box-shadow: 2px 4px 8px rgb(68, 67, 67); */
+  border-radius: 8px;
+  text-align: right;
+  padding: 5px 0;
+  margin: 0 auto;
+  position: relative;
+  top: 130px;
+  left: 700px;
+}
+
+#detail-1 h1 {
+  font-weight: bolder;
+  font-size: 65px;
+  padding: 0;
+  margin: 0;
+}
+
+#detail-1 h2 {
+  position: relative;
+  right: 40px;
+  color: rgb(228, 219, 219);
+  font-weight: lighter;
+}
+
+#detail-1 p {
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+#detail-2 {
+  width: 510px;
+  font-size: 35px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 4px 8px rgb(68, 67, 67);
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 0;
+  margin: 0 auto;
+  position: relative;
+  top: 150px;
+  left: 820px;
+}
+
+#detail-2 h3 {
+  color: rgb(12, 19, 26);
+  font-size: 30px;
+  padding: 0;
+  margin: 15px 5px;
+}
+
+#detail-2 p {
+    color: rgb(32, 46, 60);
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Oleo+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="home-page-styles.css" />
+    <title>Marvel Super Hero Information Booklet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+    <script>
+      var hash = CryptoJS.MD5("Message");
+      var publicKey = "6d41bb3cf78ba8c9fe5ffe487e9d9cb7";
+      var privateKey = "695a3b88aff9b1effeca8ef3233289e5c28ea65a";
+      var time_stamp = Date.now();
+
+      function calculateHash() {
+        return CryptoJS.MD5(time_stamp + privateKey + publicKey).toString();
+      }
+
+      function generateUrl(pageNumber) {
+        return (
+          "http://gateway.marvel.com/v1/public/characters" +
+          "?apikey=" +
+          publicKey +
+          "&hash=" +
+          calculateHash() +
+          "&ts=" +
+          time_stamp +
+          "&limit=10&offset=" +
+          (pageNumber - 1) * 10
+        );
+      }
+      // buildPage(1);
+
+      async function buildPage(pageNumber) {
+        let allChars1 = await getCharacters(pageNumber);
+        console.log(allChars1);
+
+        const superHeroes = allChars1.data.results;
+        const charsSection = document.getElementById("super-heroes");
+
+        const totalPages = allChars1.data.total / allChars1.data.limit;
+
+        for (let i = 0; i < superHeroes.length; i++) {
+          let div =
+            "<li class='super-hero'>" +
+            "<img src='" +
+            superHeroes[i].thumbnail.path +
+            "." +
+            superHeroes[i].thumbnail.extension +
+            "' alt='" +
+            superHeroes[i].name +
+            "' />" +
+            "<div class='hover-effect'>" +
+            "<h2>" +
+            superHeroes[i].name +
+            "</h2>" +
+            "<p>" +
+            superHeroes[i].name +
+            "</p>" +
+            "</div>" +
+            "</li>";
+          charsSection.innerHTML += div;
+        }
+
+        const paginationSection = document.getElementById("pagination");
+
+        // paginationSection.innerHTML += "<li><a href='#'>«</a></li>";
+        for (let i = 1; i <= totalPages; i++) {
+          paginationSection.innerHTML +=
+            "<li><a href='#/' onclick = 'return refreshData(" +
+            i +
+            ")'>" +
+            i +
+            "</a></li>";
+        }
+        // paginationSection.innerHTML += "<li><a href='#'>»</a></li>";
+      }
+
+      function refreshData(pageNumber) {
+        const charsSection = document.getElementById("super-heroes");
+        charsSection.innerHTML = "";
+        buildPage(pageNumber);
+      }
+
+      async function getCharacters(pageNumber) {
+        const charsURL = generateUrl(pageNumber);
+        console.log(charsURL);
+        const response = await fetch(charsURL);
+        var allChars = await response.json();
+        console.log(allChars);
+        return allChars;
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div id="page-logo">
+        <a href="index.html"><img src="page-logo.png" alt="Marvel" /></a>
+        <nav></nav>
+      </div>
+    </header>
+    <main>
+      <section id="hero">
+        <div id="hero-content">
+          <h1>Hey, Deadpool here!</h1>
+          <p>Bet ya never thought I'd show up in this website . . . . . .</p>
+          <p>Well, I did and i will show you the Marvel Universe</p>
+        </div>
+      </section>
+      <section></section>
+      <section id="hero-list">
+        <h2 class="hero-list-head">Super Heroes</h2>
+        <ul id="super-heroes">
+          <li class="super-hero">
+            <a href="iron-man.html">
+              <img src="iron-man.jpg" alt="Iron Man" />
+              <div class="hover-effect">
+                <h2>Iron Man</h2>
+                <p>Tony Stark</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="thor.html">
+              <img src="thor.jpg" alt="Thor" />
+              <div class="hover-effect">
+                <h2>Thor</h2>
+                <p>Chris Hemsworth</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="captain-america.html">
+              <img src="captain-america.jpg" alt="Captain America" />
+              <div class="hover-effect">
+                <h2>Captain America</h2>
+                <p>Steve Rogers</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="spider-man.html">
+              <img src="spider-man.jpg" alt="Spider Man" />
+              <div class="hover-effect">
+                <h2>Spider Man</h2>
+                <p>Peter Benjamin Parker</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="hulk.html">
+              <img src="hulk.jpg" alt="Hulk" />
+              <div class="hover-effect">
+                <h2>Hulk</h2>
+                <p>Bruce Banner</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="black-widow.html">
+              <img src="black-widow.jpg" alt="Black Widow" />
+              <div class="hover-effect">
+                <h2>Black Widow</h2>
+                <p>Natasha Romanoff</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="black-panther.html">
+              <img src="black-panther.jpg" alt="Black Panther" />
+              <div class="hover-effect">
+                <h2>Black Panther</h2>
+                <p>T'Challa</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="thanos.html">
+              <img src="thanos.jpg" alt="Thanos" />
+              <div class="hover-effect">
+                <h2>Thanos</h2>
+                <p>Josh Brolin</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="super-hero">
+            <a href="star-lord.html">
+              <img src="star-lord.jpg" alt="Star Lord" />
+              <div class="hover-effect">
+                <h2>Star Lord</h2>
+                <p>Peter Quill</p>
+              </div>
+            </a>
+          </li>
+          <li class="super-hero">
+            <a href="loki.html">
+              <img src="loki.jpg" alt="Loki" />
+              <div class="hover-effect">
+                <h2>Loki</h2>
+                <p>Tom Hiddleston</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div id="wrapper">
+          <!-- start simple pagination -->
+          <ul id="pagination"></ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="https://www.marvel.com/">To Know More About Marvel</a>
+    </footer>
+  </body>
+</html>

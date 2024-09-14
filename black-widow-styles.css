@@ -1,0 +1,38 @@
+#background-img {
+  height: 1800px;
+  background-image: url("black-widow2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#detail-1 {
+  width: 1000px;
+  color: rgb(5, 53, 108);
+  font-size: 25px;
+  /* background-color: rgba(254, 229, 252, 0.8);
+      box-shadow: 2px 4px 8px rgb(68, 67, 67); */
+  border-radius: 8px;
+  text-align: left;
+  padding: 5px 0;
+  margin: 0 auto;
+  position: relative;
+  top: 130px;
+  right: 700px;
+}
+
+#detail-1 h2 {
+    font-size: 50px;
+}
+
+#detail-1 h1 {
+    font-size: 100px;
+}
+
+#detail-1 p {
+    font-size: 45px;
+}
+
+#detail-1 .Comics,#detail-1 h3 {
+    font-size: 45px;
+    color: rgb(9, 12, 48);
+}

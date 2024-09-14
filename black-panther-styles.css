@@ -1,0 +1,51 @@
+#background-img {
+  height: 1800px;
+  background-image: url("black-panther2.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+#detail-1 {
+  width: 800px;
+  color: white;
+  font-size: 25px;
+  background-color: rgba(13, 12, 13, 0.8);
+  box-shadow: 2px 4px 8px rgb(68, 67, 67);
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 0;
+  margin: 0 auto;
+  position: relative;
+  top: 130px;
+  left: 800px;
+}
+
+#detail-1 h2 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+#detail-1 h1 {
+  font-size: 100px;
+  font-weight: bolder;
+}
+
+#detail-1 p {
+  font-weight: normal;
+  font-size: 40px;
+}
+
+#detail-2 {
+  width: 510px;
+  font-size: 35px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 4px 8px rgb(68, 67, 67);
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 0;
+  margin: 0 auto;
+  position: relative;
+  bottom: 450px;
+  right: 820px;
+}
